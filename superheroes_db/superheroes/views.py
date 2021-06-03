@@ -56,3 +56,11 @@ def delete(request, superhero_id):
     return render(request, 'superheroes/index.html', context)
 
 
+def detail(request, superhero_id):
+    superhero = Superhero.objects.get(id=superhero_id)
+    context = {
+        'superhero': superhero
+    }
+    return render(request, 'superheroes/detail.html', context)
+
+
