@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,14 +6,51 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'images/background.css' %}">
     <title>Superhero Index</title>
 </head>
-<body>
-<h1>Superheroes:</h1>
-<ul>
+<body class="full-height"></body>
+<style>
+h1 {
+    text-align: center;
+}
+</style>
+<h1>Superheroes</h1>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="{% url 'superheroes:index' %}" class="nav-link">Index</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:create' %}" class="nav-link">Create</a></li>
+    </ul>
+</div>
+<br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>I.D.</th>
+      <th>Name</th>
+      <th>Details</th>
+<!--      <th>Alter Ego</th>-->
+<!--      <th>Primary Ability</th>-->
+<!--      <th>Secondary Ability</th>-->
+<!--      <th>Catchphrase</th>-->
+<!--      <th>Picture</th>-->
+    </tr>
     {% for superhero in all_superheroes %}
-    <li><h2> {{superhero.name}} </h2></li>
+    <tr>
+        <td>{{superhero.id}}</td>
+        <td>{{superhero.name}}</td>
+        <td class="table"><a href="{% url 'superheroes:detail' superhero.id %}" class="link">Click for details!</a> </td>
+<!--        <td>{{superhero.alter_ego}}</td>-->
+<!--        <td>{{superhero.primary_ability}}</td>-->
+<!--        <td>{{superhero.secondary_ability}}</td>-->
+<!--        <td>{{superhero.catchphrase}}</td>-->
     {% endfor %}
-</ul>
-</body>
-</html>
+    </tr>
+  </table>
+</div>

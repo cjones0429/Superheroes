@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,9 +6,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/images.css' %}">
     <title>Edit Superhero</title>
 </head>
-<body>
+<body class="full-height">
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="{% url 'superheroes:index' %}" class="nav-link">Index</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:create' %}" class="nav-link">Create</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:edit' superhero.id %}" class="nav-link">Edit</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:delete' superhero.id %}" class="nav-link">Delete</a></li>
+    </ul>
+</div>
+<style>
+h1 {
+    text-align: center;
+}
+</style>
+<div class="table"><h1>Edit a Superhero!</h1></div>
+<div class="table">
 <form action="{% url 'superheroes:edit' superhero.id %}" method="post">
   {% csrf_token %}
   Name:<input type="text" name="name" id="name" value="{{superhero.name}}"><br>
@@ -16,5 +37,7 @@
   Secondary Ability:<input type="text" name="secondary_ability" id="secondary_ability" value="{{superhero.secondary_ability}}"><br>
   Catchphrase:<input type="text" name="catchphrase" id="catchphrase" value="{{superhero.catchphrase}}"><br>
     <input type="submit" value="Edit">
+</form>
+</div>
 </body>
 </html>

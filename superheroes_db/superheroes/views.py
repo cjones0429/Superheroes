@@ -39,6 +39,7 @@ def edit(request, superhero_id):
         superhero.secondary_ability = request.POST.get('secondary_ability')
         superhero.catchphrase = request.POST.get('catchphrase')
         superhero.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         context = {
             'superhero': superhero

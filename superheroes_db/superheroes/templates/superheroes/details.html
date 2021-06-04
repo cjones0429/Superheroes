@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,18 +6,35 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!--    bootstrap url goes here-->
-<!--    stylesheet link goes here-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/images.css' %}">
     <title>Details</title>
 </head>
-<body>
-<div>
-    <h2> Superhero I.D. - {{superhero.id}}</h2><br>
-    <h2> Alter Ego - {{superhero.alter_ego}}</h2><br>
-    <h2> Primary Ability. - {{superhero.primary_ability}}</h2><br>
-    <h2> Secondary Ability. - {{superhero.secondary_ability}}</h2><br>
-    <h2> Catchphrase - {{superhero.catchphrase}}</h2><br>
+<body class="full-height">
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="{% url 'superheroes:index' %}" class="nav-link dark">Index</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:create' %}" class="nav-link dark">Create</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:edit' superhero.id %}" class="nav-link dark">Edit</a></li>
+        <li class="nav-item"><a href="{% url 'superheroes:delete' superhero.id %}" class="nav-link dark">Delete</a></li>
+    </ul>
 </div>
-
+<br>
+<style>
+h1 {
+    text-align: center;
+}
+</style>
+<div class="container"><h1>{{superhero.name}}</h1></div>
+<div class="container"><ul>
+    <li><h2> Superhero I.D. - {{superhero.id}}</h2></li>
+    <li><h2> Alter Ego - {{superhero.alter_ego}}</h2></li>
+    <li><h2> Primary Ability - {{superhero.primary_ability}}</h2></li>
+    <li><h2> Secondary Ability - {{superhero.secondary_ability}}</h2></li>
+    <li><h2> Catchphrase - {{superhero.catchphrase}}</h2></li>
+</ul></div>
 </body>
 </html>

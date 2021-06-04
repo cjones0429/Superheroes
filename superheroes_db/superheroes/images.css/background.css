@@ -1,0 +1,10 @@
+html,body {
+    height: 100%;
+    margin: 0;
+}
+.full-height {
+    background-image: url(images.css/images/captain_america.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
