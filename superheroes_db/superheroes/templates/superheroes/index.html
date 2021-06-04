@@ -35,21 +35,12 @@ h1 {
       <th>I.D.</th>
       <th>Name</th>
       <th>Details</th>
-<!--      <th>Alter Ego</th>-->
-<!--      <th>Primary Ability</th>-->
-<!--      <th>Secondary Ability</th>-->
-<!--      <th>Catchphrase</th>-->
-<!--      <th>Picture</th>-->
-    </tr>
+   </tr>
     {% for superhero in all_superheroes %}
     <tr>
         <td>{{superhero.id}}</td>
         <td>{{superhero.name}}</td>
         <td class="table"><a href="{% url 'superheroes:detail' superhero.id %}" class="link">Click for details!</a> </td>
-<!--        <td>{{superhero.alter_ego}}</td>-->
-<!--        <td>{{superhero.primary_ability}}</td>-->
-<!--        <td>{{superhero.secondary_ability}}</td>-->
-<!--        <td>{{superhero.catchphrase}}</td>-->
     {% endfor %}
     </tr>
   </table>

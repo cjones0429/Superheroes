@@ -62,6 +62,6 @@ def detail(request, superhero_id):
     context = {
         'superhero': superhero
     }
-    return render(request, 'superheroes/detail.html', context)
+    return render(request, 'superheroes/details.html', context)
 
 

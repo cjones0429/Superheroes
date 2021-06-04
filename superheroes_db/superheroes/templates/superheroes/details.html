@@ -28,13 +28,31 @@ h1 {
     text-align: center;
 }
 </style>
-<div class="container"><h1>{{superhero.name}}</h1></div>
-<div class="container"><ul>
-    <li><h2> Superhero I.D. - {{superhero.id}}</h2></li>
-    <li><h2> Alter Ego - {{superhero.alter_ego}}</h2></li>
-    <li><h2> Primary Ability - {{superhero.primary_ability}}</h2></li>
-    <li><h2> Secondary Ability - {{superhero.secondary_ability}}</h2></li>
-    <li><h2> Catchphrase - {{superhero.catchphrase}}</h2></li>
-</ul></div>
+<div class="table-responsive">
+  <table class="table">
+        <tr>
+            <th>I.D.</th>
+            <th>Name</th>
+            <th>Alter Ego</th>
+            <th>Primary Ability</th>
+            <th>Secondary Ability</th>
+            <th>Catchphrase</th>
+            <th>Picture</th>
+        </tr>
+      {% for superhero in all_superheroes %}
+    <tr>
+        <td>{{superhero.id}}</td>
+        <td>{{superhero.name}}</td>
+        <td>{{superhero.alter_ego}}</td>
+        <td>{{superhero.primary_ability}}</td>
+        <td>{{superhero.secondary_ability}}</td>
+        <td>{{superhero.catchphrase}}</td>
+        {% endfor %}
+    </tr>
+  </table>
+</div>
 </body>
 </html>
+
+
+
