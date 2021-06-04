@@ -37,9 +37,7 @@ h1 {
             <th>Primary Ability</th>
             <th>Secondary Ability</th>
             <th>Catchphrase</th>
-            <th>Picture</th>
         </tr>
-      {% for superhero in all_superheroes %}
     <tr>
         <td>{{superhero.id}}</td>
         <td>{{superhero.name}}</td>
@@ -47,7 +45,6 @@ h1 {
         <td>{{superhero.primary_ability}}</td>
         <td>{{superhero.secondary_ability}}</td>
         <td>{{superhero.catchphrase}}</td>
-        {% endfor %}
     </tr>
   </table>
 </div>
